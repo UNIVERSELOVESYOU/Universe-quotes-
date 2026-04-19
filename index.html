@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; height: 100%; width: 100%;
+            overflow: hidden; background-color: #000;
+        }
+        #bg {
+            height: 100%; width: 100%;
+            background-size: contain; /* Shows full image without cropping */
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.3s ease-in-out;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onclick="showNextImage()">
+
+    <div id="bg"></div>
+
+    <script>
+        function showNextImage() {
+            // Pick a random number between 1 and 200
+            const randomNum = Math.floor(Math.random() * 200) + 1;
+            
+            // Construct the path to your GitHub image
+            // Replace 'yourusername' and 'your-repo' with your actual GitHub details
+            const imagePath = `images/${randomNum}.jpg`;
+            
+            document.getElementById('bg').style.backgroundImage = `url('${imagePath}')`;
+        }
+
+        // Show the first image immediately
+        window.onload = showNextImage;
+    </script>
+</body>
+</html>
